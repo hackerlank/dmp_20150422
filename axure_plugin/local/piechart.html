@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <script type="text/javascript" src="http://localhost/jsapi"></script>
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Type', 'Money'],
+          ['0~10元',      11],
+          ['11~100元',     2],
+          ['101~500元',    2],
+          ['501~3000元',   2],
+          ['3001~10000元', 2],
+          ['10000元以上',  2]
+        ]);
+
+        var options = {
+          title: 'Top100付费人数结构',
+          is3D: true,
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="piechart_3d" style="width: 900px; height: 500px;"></div>
+  </body>
+</html>
